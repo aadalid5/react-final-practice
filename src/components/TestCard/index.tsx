@@ -1,27 +1,27 @@
 import React from 'react';
 import OptionCard from 'components/OptionCard';
+import IOption from 'models/IOption';
 
-function TestCard ({text, code, options, select}: IProps){
+function TestCard ({question, options, handleCheck }: IProps){
     return(
         <div className='TestCard'>
             <div className='testNameField'>
-                {text}
-            </div>
-            <div className='codeField'>
-                {code}
+                {question}
             </div>
             <div className='selectionField'>
-                <OptionCard />
+                {options.map((option: IOption) =>(
+                    <OptionCard {...option} handleCheck={handleCheck}/> /* text={option.text} key={option.id} */
+                ))}
             </div>
         </div>
     )
 }
 
 interface IProps{
-    text: string,
-    code: any,
-    options: any[],
-    select: boolean
+    id?: string,
+    question: string,
+    options: IOption[],
+    handleCheck?: (event: any) => void
 }
 
 export default TestCard;

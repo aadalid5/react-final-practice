@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import InputField from 'components/InputField'
-import OptionCard from 'components/OptionCard';
+
 
 function Home (){
     const [user, setUser] = useState('');
@@ -14,8 +14,7 @@ function Home (){
     }
     return (
         <div className='homeCmpt'>
-            <InputField onInputChange={onInputChange} onButtonClick={onButtonClick}/>
-            <OptionCard/>
+            <InputField onInputChange={onInputChange} onButtonClick={onButtonClick} />
         </div>
     )
 }
